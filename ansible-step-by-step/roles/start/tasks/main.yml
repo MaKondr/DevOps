@@ -1,0 +1,16 @@
+---
+- name: Copy docker-compose.yml
+  ansible.builtin.shell: |
+    cp /home/{{ ansible_user }}/devops/compose.yml /home/{{ ansible_user }}
+
+- name: Create file for mount
+  ansible.builtin.shell: |
+    touch /home/{{ ansible_user }}/data-from-container.txt
+
+- name: Start services
+  ansible.builtin.shell: |
+    docker compose -f /home/{{ ansible_user }}/compose.yml up -d
+  args:
+    chdir: /home/{{ ansible_user }}/
+  become: true
+

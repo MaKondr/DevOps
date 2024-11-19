@@ -1,0 +1,15 @@
+---
+- name: Deploy microservices
+  hosts: dev_server
+  roles:
+    - role: docker
+      tags: docker
+
+    - role: clone
+      tags: clone
+
+    - role: start
+      tags: start
+
+    - role: stop
+      tags: stop

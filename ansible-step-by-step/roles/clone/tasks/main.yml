@@ -1,0 +1,16 @@
+---
+- name: Clone Frontend repository
+  ansible.builtin.git:
+    repo: 'https://github.com/MaKondr/lab1-frontend.git'
+    dest: '/home/{{ ansible_user }}/frontend'
+
+- name: Clone Backend repository
+  ansible.builtin.git:
+    repo: 'https://github.com/MaKondr/lab1-backend.git'
+    dest: '/home/{{ ansible_user }}/backend'
+
+- name: Clone DevOps repository
+  ansible.builtin.git:
+    repo: 'https://github.com/MaKondr/DevOps.git'
+    dest: '/home/{{ ansible_user }}/devops'
+

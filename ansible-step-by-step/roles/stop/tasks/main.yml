@@ -1,0 +1,8 @@
+---
+- name: Stop services
+  ansible.builtin.shell: |
+    docker compose -f /home/{{ ansible_user }}/compose.yml down
+  args:
+    chdir: /home/{{ ansible_user }}/
+  become: true
+
