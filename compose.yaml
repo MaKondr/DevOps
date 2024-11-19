@@ -9,6 +9,8 @@ services:
             - "8081:8081"
         volumes:
             - ./data-from-container.txt:/app/data.txt
+        command: 
+            - /bin/sh -c "test -f data-from-container.txt || echo 'Создаю файл' > data-from-container.txt"
         networks:
             - lab-network
         restart: unless-stopped
