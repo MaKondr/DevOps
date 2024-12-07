@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     // Устанавливаем Ansible в контейнере
-                    sh 'sudo apt-get update && sudo apt-get install -y ansible'
+                    sh 'apt-get update && sudo apt-get install -y ansible'
                 }
             }
         }
