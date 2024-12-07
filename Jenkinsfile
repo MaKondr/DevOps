@@ -7,6 +7,14 @@ pipeline {
         ANSIBLE_CREDENTIALS_ID = 'ansible_ssh_key' // ID SSH ключа для Ansible
     }
     stages {
+        stage('Install Ansible') {
+            steps {
+                script {
+                    // Устанавливаем Ansible в контейнере
+                    sh 'sudo apt-get update && sudo apt-get install -y ansible'
+                }
+            }
+        }
         stage('Clone Repository') {
             steps {
                 git credentialsId: "${GIT_CREDENTIALS_ID}", branch: 'master', url: "${GIT_REPO}" // Клонирование репозитория
