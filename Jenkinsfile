@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git credentialsId: "${GIT_CREDENTIALS_ID}", branch: 'main', url: "${GIT_REPO}" // Клонирование репозитория
+                git credentialsId: "${GIT_CREDENTIALS_ID}", branch: 'master', url: "${GIT_REPO}" // Клонирование репозитория
             }
         }
         stage('Run Ansible') {
