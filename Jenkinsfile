@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        GIT_REPO = 'git@github.com:ваш-пользователь/ваш-репозиторий.git' // URL вашего репозитория
+        GIT_REPO = 'git@github.com:MaKondr/DevOps.git' // URL вашего репозитория
         ANSIBLE_PLAYBOOK = 'playbook.yml' // Ваш Ansible playbook
     }
     stages {
@@ -12,6 +12,9 @@ pipeline {
         }
         stage('Run Ansible') {
             steps {
+                script {
+                    sh 'cd ansible-step-by-step'
+                }
                 ansiblePlaybook(
                     playbook: "${ANSIBLE_PLAYBOOK}",   // Файл playbook в репозитории
                     inventory: 'inventory/hosts.ini', // Инвентори-файл
