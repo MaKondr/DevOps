@@ -19,7 +19,7 @@ pipeline {
                 }
                 ansiblePlaybook(
                     playbook: "${ANSIBLE_PLAYBOOK}",   // Файл playbook в репозитории
-                    inventory: 'inventory/hosts.ini', // Инвентори-файл
+                    inventory: 'inventory.yml', // Инвентори-файл
                     credentialsId: 'ansible_ssh_key'  // ID SSH ключа из Credentials
                 )
             }
